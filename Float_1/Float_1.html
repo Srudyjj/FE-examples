@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Плавающий блок на jQuery</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+  // console.log(height)//вывод в консоль любого значения
+  var topPos = $('#floating').offset().top; //расстояние от АйДи флоатинг до начала документа
+  var height = $('#floating').outerHeight();//высота черного блока
+  var pip = $('footer').offset().top;
+   console.log(height);
+  $(window).scroll(function() { //при скроллинге:
+  var top = $(document).scrollTop();//скролинг документа
+//расстояние от футера до начала документа
+
+      // console.log(topPos);
+      
+      
+  if (top > topPos && top < pip - height) {//проскролено больше расстояния от АйДи флоатинг до начала документа
+  //и проскролено меньше чем расстояние от футера минус высота черного блоока
+  $('#floating').addClass('fixed').fadeIn(300); //добавляем черному блоку класс фиксед и плавное проявление
+  } 
+  else if (top > pip - height) {
+  $('#floating').fadeOut(100);//скрытие черного блока при достижении футера
+  }
+  else {$('#floating').removeClass('fixed');}//убираем класс фиксед
+  });
+});
+
+
+</script>
+<!--$(function(){
+  $(window).scroll(function() { 
+  var top = $(document).scrollTop(),
+      pip = $('footer').offset().top;
+//alert (pip);
+  if (top > 200 && top < pip - 500) {$('#floating').addClass('fixed').removeAttr("style");}  // 500 - это высота блока, можно задать больше
+  else if (top > pip - 500) {$('#floating').removeClass('fixed').css({'position':'absolute','bottom':'0'});}
+  else {$('#floating').removeClass('fixed');}
+  });
+
+});-->
+<style>
+article {
+	width: 980px;
+	margin: 0 auto;
+}
+h1 {
+	background: #666;
+	text-align: center;
+	height:100px;
+	color: #FFF;
+}
+.content {
+	position: relative;
+	background: #999;
+	font: normal normal 16px Tahoma;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	width: 980px;
+	height: 100%;
+}
+.left-column {
+	float: left;
+	background: #fff;
+	padding: 10px;
+	margin: 10px;
+	width: 60%;
+}
+.right-column {
+	float: right;
+	padding: 10px;
+	width: 30%;
+}
+.right-content {
+	background: #fff;
+	padding: 5px;
+	margin: 5px;
+	width: 250px;
+}
+.container {
+	height: 520px; /*убираем скачок блока при прокрутке*/
+}
+#floating {
+	background:#1c1c1c;
+	color:#fff;
+	font: normal normal 14px Tahoma;
+	padding: 10px;
+	height: 500px;
+	width: 250px;
+}
+.fixed {
+	position: fixed;
+	top: 10px;
+	z-index: 9999;
+}
+footer {
+	background: #333;
+	text-align: center;
+	color: #FFF;
+	height: 800px;
+	width: 980px;
+	margin: 0 auto;
+}
+
+</style>
+ </head>
+ <body>
+  <header>
+    <h1>Показательная страница</h1>
+  </header>
+  <article>
+   <h2>Добро пожаловать!</h2>
+
+   <div class='content'>
+    <div class='left-column'>
+     <div class='post'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ipsum erat, porttitor eget porta sed, imperdiet ac magna. Suspendisse fringilla magna eget mauris bibendum in ornare ligula elementum. Praesent in dui ac purus faucibus sollicitudin ac quis lacus. Integer posuere dui eget est tristique congue. Cras facilisis, enim at laoreet iaculis, tellus augue ultrices nunc, quis suscipit est nunc molestie arcu. Vivamus ullamcorper ornare arcu et accumsan. Maecenas gravida, turpis auctor sodales tincidunt, velit nulla interdum magna, at sodales tortor orci porttitor ligula. Morbi aliquet tellus sed lacus vehicula euismod. Suspendisse et ligula in risus placerat rhoncus eget et velit. Nam hendrerit tempor sollicitudin. Vivamus nec nisl lacus. Nullam feugiat sapien ut urna tincidunt imperdiet. Nam sem velit, ultricies ut lobortis nec, euismod quis metus. Praesent laoreet, odio in scelerisque rhoncus, est quam lacinia odio, id sodales justo tellus sed magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+<br>
+ Mauris consequat, odio eu porttitor auctor, erat odio vulputate justo, in malesuada nibh augue vel mauris. Nunc nec magna nulla. Aenean eget ipsum a magna pellentesque mattis. Aliquam erat volutpat. Donec nunc diam, vestibulum eu auctor non, egestas non justo. Fusce ultrices interdum sollicitudin. Ut vehicula pharetra feugiat. Morbi placerat purus magna, ut posuere ligula. Aliquam diam augue, rutrum ut malesuada a, auctor ut tortor. Phasellus vitae quam nisi, id pharetra dolor. Suspendisse tortor dolor, pharetra in vestibulum porta, hendrerit ac dui. Vestibulum laoreet augue id dolor molestie pellentesque. Vivamus dolor ipsum, scelerisque fermentum vestibulum et, ullamcorper ac leo. Cras pharetra velit neque. In condimentum rhoncus nisl, at vehicula ante tempor posuere. Curabitur ullamcorper libero sed leo ullamcorper vel consectetur metus dapibus. 
+<br>
+ Fusce non mauris tellus. Donec a lacinia urna. Maecenas ut lorem vel nunc elementum aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tellus neque, pulvinar consequat metus. Nulla quis risus sem, sit amet fringilla lectus. Aenean sit amet orci at tellus pellentesque pretium. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec porttitor accumsan elit, sit amet dignissim nibh aliquam id. Pellentesque semper venenatis nulla at tincidunt. Aenean rutrum turpis vel mauris pellentesque eget vestibulum leo suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+<br>
+ Etiam eget purus urna. Integer luctus, nulla ut euismod tristique, mauris erat feugiat mauris, eu dignissim ante lacus a eros. Phasellus id sapien non lacus dignissim facilisis eget nec leo. Integer suscipit dignissim purus ut ullamcorper. Proin vitae lorem erat, vel porta leo. Nunc sit amet lectus urna. Integer et justo facilisis nisi tempus consectetur vel ut mauris. Donec ut mauris non lacus hendrerit egestas. 
+<br>
+ Pellentesque a elit a leo elementum eleifend. Maecenas suscipit est sit amet leo fringilla sollicitudin. Duis dolor ligula, tempor mollis elementum non, bibendum a ipsum. Quisque congue risus ultrices augue faucibus in porttitor mi ultricies. Nulla interdum nisl sit amet arcu tristique sed ultrices arcu consectetur. Curabitur nec orci augue. Quisque eget tortor sapien, vitae varius nunc. Ut lectus erat, gravida sed faucibus lobortis, egestas eget neque. Aenean dignissim nulla sed ligula tristique vel porttitor ante gravida. In aliquam enim non augue varius volutpat. Duis ornare consequat augue tincidunt vehicula. Nulla tincidunt arcu urna. Fusce aliquam, arcu ac varius suscipit, dui urna posuere risus, in adipiscing leo ligula et orci. Donec gravida libero semper augue bibendum ac vehicula eros sagittis. Donec gravida, nulla quis egestas cursus, metus risus interdum est, id gravida lorem risus vitae orci. Ut feugiat libero pharetra enim ultricies fringilla.
+<br>
+ Etiam eget purus urna. Integer luctus, nulla ut euismod tristique, mauris erat feugiat mauris, eu dignissim ante lacus a eros. Phasellus id sapien non lacus dignissim facilisis eget nec leo. Integer suscipit dignissim purus ut ullamcorper. Proin vitae lorem erat, vel porta leo. Nunc sit amet lectus urna. Integer et justo facilisis nisi tempus consectetur vel ut mauris. Donec ut mauris non lacus hendrerit egestas. 
+<br>
+ Pellentesque a elit a leo elementum eleifend. Maecenas suscipit est sit amet leo fringilla sollicitudin. Duis dolor ligula, tempor mollis elementum non, bibendum a ipsum. Quisque congue risus ultrices augue faucibus in porttitor mi ultricies. Nulla interdum nisl sit amet arcu tristique sed ultrices arcu consectetur. Curabitur nec orci augue. Quisque eget tortor sapien, vitae varius nunc. Ut lectus erat, gravida sed faucibus lobortis, egestas eget neque. Aenean dignissim nulla sed ligula tristique vel porttitor ante gravida. In aliquam enim non augue varius volutpat. Duis ornare consequat augue tincidunt vehicula. Nulla tincidunt arcu urna. Fusce aliquam, arcu ac varius suscipit, dui urna posuere risus, in adipiscing leo ligula et orci. Donec gravida libero semper augue bibendum ac vehicula eros sagittis. Donec gravida, nulla quis egestas cursus, metus risus interdum est, id gravida lorem risus vitae orci. Ut feugiat libero pharetra enim ultricies fringilla.<br><br><br><br><br><br><br><br><br><br><br><br>
+ Fusce non mauris tellus. Donec a lacinia urna. Maecenas ut lorem vel nunc elementum aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tellus neque, pulvinar consequat metus. Nulla quis risus sem, sit amet fringilla lectus. Aenean sit amet orci at tellus pellentesque pretium. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec porttitor accumsan elit, sit amet dignissim nibh aliquam id. Pellentesque semper venenatis nulla at tincidunt. Aenean rutrum turpis vel mauris pellentesque eget vestibulum leo suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+<br>
+ Etiam eget purus urna. Integer luctus, nulla ut euismod tristique, mauris erat feugiat mauris, eu dignissim ante lacus a eros. Phasellus id sapien non lacus dignissim facilisis eget nec leo. Integer suscipit dignissim purus ut ullamcorper. Proin vitae lorem erat, vel porta leo. Nunc sit amet lectus urna. Integer et justo facilisis nisi tempus consectetur vel ut mauris. Donec ut mauris non lacus hendrerit egestas. 
+<br>
+ Pellentesque a elit a leo elementum eleifend. Maecenas suscipit est sit amet leo fringilla sollicitudin. Duis dolor ligula, tempor mollis elementum non, bibendum a ipsum. Quisque congue risus ultrices augue faucibus in porttitor mi ultricies. Nulla interdum nisl sit amet arcu tristique sed ultrices arcu consectetur. Curabitur nec orci augue. Quisque eget tortor sapien, vitae varius nunc. Ut lectus erat, gravida sed faucibus lobortis, egestas eget neque. Aenean dignissim nulla sed ligula tristique vel porttitor ante gravida. In aliquam enim non augue varius volutpat. Duis ornare consequat augue tincidunt vehicula. Nulla tincidunt arcu urna. Fusce aliquam, arcu ac varius suscipit, dui urna posuere risus, in adipiscing leo ligula et orci. Donec gravida libero semper augue bibendum ac vehicula eros sagittis. Donec gravida, nulla quis egestas cursus, metus risus interdum est, id gravida lorem risus vitae orci. Ut feugiat libero pharetra enim ultricies fringilla.
+<br>
+ Etiam eget purus urna. Integer luctus, nulla ut euismod tristique, mauris erat feugiat mauris, eu dignissim ante lacus a eros. Phasellus id sapien non lacus dignissim facilisis eget nec leo. Integer suscipit dignissim purus ut ullamcorper. Proin vitae lorem erat, vel porta leo. Nunc sit amet lectus urna. Integer et justo facilisis nisi tempus consectetur vel ut mauris. Donec ut mauris non lacus hendrerit egestas. 
+<br>
+ Pellentesque a elit a leo elementum eleifend. Maecenas suscipit est sit amet leo fringilla sollicitudin. Duis dolor ligula, tempor mollis elementum non, bibendum a ipsum. Quisque congue risus ultrices augue faucibus in porttitor mi ultricies. Nulla interdum nisl sit amet arcu tristique sed ultrices arcu consectetur. Curabitur nec orci augue. Quisque eget tortor sapien, vitae varius nunc. Ut lectus erat, gravida sed faucibus lobortis, egestas eget neque. Aenean dignissim nulla sed ligula tristique vel porttitor ante gravida. In aliquam enim non augue varius volutpat. Duis ornare consequat augue tincidunt vehicula. Nulla tincidunt arcu urna. Fusce aliquam, arcu ac varius suscipit, dui urna posuere risus, in adipiscing leo ligula et orci. Donec gravida libero semper augue bibendum ac vehicula eros sagittis. Donec gravida, nulla quis egestas cursus, metus risus interdum est, id gravida lorem risus vitae orci. Ut feugiat libero pharetra enim ultricies fringilla.<br><br><br><br><br><br><br><br><br><br><br><br>
+       
+	</div>
+   </div>
+   <div class='right-column'>
+    <div class="container">
+     <div id="floating">Плавающий блок!<br />Он плавает и ему наплевать на высоту страницы...<br />Он плавает по месту и никуда не уедет...
+     </div>
+    </div>
+    <div class='right-content'>
+     <div>
+tra sed tincidunt nisi dictum. Phasellus molestie egestas turpis. Proin aliquam fringilla nibh at feugiat. Sed sit amet erat non tortor convallis egestas eu in elit. Pellentesque ac mattis dolor. Duis convallis aliquam tristique. Aenean feugiat feugiat fringilla. Nulla facilisi. Sed ac diam at elit suscipit bibendum sit amet id magna. Pellentesque in tortor sem. Maecenas nulla metus, sollicitudin ut viverra ac, iaculis nec lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam sit amet facilisis erat.
+     </div>
+    </div>
+   </div>
+   <div style="clear:both;"></div>
+  </div>
+  </article>
+  <footer>
+    Copyleft GFC
+  </footer>
+</body>
+</html>

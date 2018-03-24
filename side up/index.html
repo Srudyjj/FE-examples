@@ -1,0 +1,85 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<style>
+		#scroller{
+			position: fixed;    
+			bottom: 30px;
+			right: 30px;
+			background: transparent url(arrow.png) no-repeat left top;  
+			width: 32px;
+			height: 32px;
+			cursor: pointer;
+			display:none;
+		}
+	</style>
+	<script>
+			
+		$(document).ready(function(){
+			// $('#scroller').fadeOut();   
+			//fade in/out based on scrollTop value
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 100) {
+					$('#scroller').fadeIn();
+				} else  {
+					$('#scroller').fadeOut();
+				}
+			});
+		 
+			// scroll body to 0px on click
+			$('#scroller').click(function () {
+				$('body,html').animate({
+					scrollTop: 0
+				}, 400);
+				return false;
+			});
+		});
+	</script>
+	<title>Scroll To Top </title>
+</head>
+<body>
+	<div>
+	<h1>Чтобы увидеть кнопку, сделайте скроллинг вниз...</h1>
+					<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+<p>Lorem ipsum</p>
+
+
+
+	</div>
+	<a href="#" id="scroller"></a>
+</body>
+</html>

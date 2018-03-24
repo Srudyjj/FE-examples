@@ -1,0 +1,232 @@
+/*css reset*/
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+
+
+/*global styles*/
+div{
+	margin: 50px;
+}
+
+.test01{
+	width: 500px;
+	height: 500px;
+	background: blue;
+}
+
+.test02{
+	width: 500px;
+	height: 500px;
+	background: red;
+	border-radius: 20px;
+}
+
+.test03{
+	width: 500px;
+	height: 500px;
+	background: pink;
+	border-radius: 50%;
+}
+
+
+.test04{
+	width: 500px;
+	height: 500px;
+	background: yellow;
+	border-radius: 50% 20px;
+}
+
+.test05{
+	width: 500px;
+	height: 500px;
+	border: 20px solid yellow;
+	border-radius: 50% 20px;
+}
+
+
+.test06{
+	width: 500px;
+	height: 500px;
+	background: purple;
+	transform: rotate(45deg);
+
+}
+
+
+.test07{
+	width: 50px;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 80px solid black;
+}
+
+.test08{
+	width: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 80px solid grey;
+}
+
+.test09{
+	width: 0;
+	border-right: 50px solid green;
+	border-bottom: 80px solid grey;
+}
+
+.test10{
+	width: 20px;
+	height: 40px;
+	border-left: 10px solid grey;
+	border-right: 10px solid grey;
+}
+
+
+.test11{
+	width: 500px;
+	height: 500px;
+	background: orange;
+	border-radius: 50%;
+	border-left: 50px solid red;
+	border-top: 50px solid green;
+	border-right: 50px solid yellow;
+	border-bottom: 50px solid black;
+}
+
+.test12{
+	border-radius: 50%;
+	width: 0;
+	border-left: 50px solid yellow;
+	border-top: 50px solid black;
+	border-right: 50px solid yellow;
+	border-bottom: 50px solid black;
+}
+
+.test13{
+	border-radius: 50%;
+	width: 20px;
+	background: red;
+	height: 20px;
+	border-left: 20px solid yellow;
+	border-right: 50px solid green;
+}
+
+
+.test14{
+	width: 700px;
+	height: 700px;
+	background: orange;
+	box-shadow: 0 0 0 20px red, 0 0 0 40px green;
+	text-shadow: 0px 0px .1px black;
+}
+
+.test15{
+	background: red;
+	color: #fff;
+	display: inline-block;
+	padding: 10px 20px;
+	position: relative;
+}
+
+.test15:before{
+ content:"";
+ position: absolute;
+ border-left: 18px solid red;
+ border-top: 18px solid transparent;
+ border-bottom: 18px solid transparent;
+ top: 0;
+ right: -18px;
+
+}
+
+.test16{
+	width: 200px;
+	height: 500px;
+	background: yellow;
+	padding-top: 50px;
+}
+
+
+.line{
+	background: red;
+	margin: 20px -20px;
+	padding: 20px;
+	position: relative;
+}
+
+.line:before{
+	content:"";
+ position: absolute;
+ border-left: 20px solid #1d1b1b;
+ border-bottom: 20px solid transparent;
+ top: 100%;
+ right: 0px;
+}
+
+ .line:after{
+ content:"";
+ position: absolute;
+ border-left: 20px solid transparent;
+ border-top: 20px solid #1d1b1b;
+ top: 100%;
+ left: 0px;
+/* z-index: 2;*/
+}
+
+.line-flag{
+	margin: 0;
+}
+
+.line-flag:before{
+	 content:"";
+ 	position: absolute;
+ 	right: -58px;
+ 	top: 20px;
+ 	width: 50px;
+ 	border-top: 28px solid red;
+ 	border-bottom: 28px solid red;
+ 	border-right: 28px solid transparent;
+ 	z-index: -1;
+ }
+

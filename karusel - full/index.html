@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cоздание jQuery карусели</title>
+		<style>
+.carousel-hider {
+    width: 600px;
+    overflow: hidden;
+    float: left;
+}
+ 
+.carousel-list {    
+    list-style: none;
+    width: 10000px;
+    padding: 0px;
+    position: relative;
+}
+ 
+.carousel-element {
+    display: block;
+    margin-right: 25px;
+    float: left;
+}
+ 
+.carousel-element img {
+    max-width: 100px;
+}
+ 
+.carousel-arrow-left, .carousel-arrow-right {
+    float: left;
+    display: block;
+    border: 1px solid grey;
+    background-color: lightgrey;
+    padding: 5px;
+    margin-top: 50px;
+}
+ 
+.carousel-arrow-left:hover, .carousel-arrow-right:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+ 
+.carousel-arrow-left {
+    margin-right: 25px;
+}
+ 
+.carousel-arrow-right {
+    margin-left: 25px;
+}
+
+	</style>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 	<script>
+$(document).ready(function() {
+    var leftUIEl = $('.carousel-arrow-left');
+    var rightUIEl = $('.carousel-arrow-right');
+    var elementsList = $('.carousel-list');
+    var visibleElements = 5
+    var pixelsOffset = 125;
+    var currentLeftValue = 0;
+    var elementsCount = elementsList.find('li').length;
+       console.log(elementsCount);
+
+    var minimumOffset = - ((elementsCount - visibleElements) * pixelsOffset);
+    console.log(minimumOffset);
+    var maximumOffset = 0;
+
+ 
+    leftUIEl.click(function() {        
+        if (currentLeftValue != maximumOffset) {
+            currentLeftValue += 125;
+            elementsList.animate({ left : currentLeftValue + "px"}, 900);
+            console.log(currentLeftValue)  
+        }   else{
+            elementsList.animate({ left : minimumOffset + "px"}, 900);
+            currentLeftValue = minimumOffset;
+            console.log(currentLeftValue)  
+
+        }     
+    });
+ 
+    rightUIEl.click(function() {        
+        if (currentLeftValue != minimumOffset) {
+            currentLeftValue -= 125;
+            elementsList.animate({ left : currentLeftValue + "px"}, 500);
+            console.log(currentLeftValue)  
+        }  else{
+            elementsList.animate({ left : maximumOffset + "px"}, 500);
+            currentLeftValue = maximumOffset;
+            console.log(currentLeftValue)  
+
+        }     
+    });
+
+    $("h2").append('<em>123</em>');
+
+    $(".carousel-element img").click(function () {
+
+        var largePath = $(this).attr("src");
+        console.log(largePath);
+        var largeAlt = $(this).attr("title");
+
+        $("#largeImg").attr({ src: largePath, alt: largeAlt });
+ 
+        $("h2 em").html("<div class='myclass'>" + largeAlt + "</div>"); 
+        return false;
+    });
+
+});
+// $(document).ready(function() {
+//     var leftUIEl = $('.carousel-arrow-left');
+//     var rightUIEl = $('.carousel-arrow-right');
+//     var elementsList = $('.carousel-list');
+ 
+//     var pixelsOffset = 125;
+//     var currentLeftValue = 0;
+ 
+//     leftUIEl.click(function() {
+//         currentLeftValue += 125;
+//         elementsList.animate({ left : currentLeftValue + "px"}, 500);
+//     });
+ 
+//     rightUIEl.click(function() {
+//         currentLeftValue -= 125;
+//         elementsList.animate({ left : currentLeftValue + "px"}, 500);
+//     });
+ 
+// });
+	</script>
+  </head>
+  <body>
+
+    <div><img id="largeImg" src="img/img1-lg.jpg" alt="Large image" /></div>
+    <div class="carousel-arrow-left"><span>Влево</span></div>
+    <div class="carousel-hider">
+  <ul class="carousel-list">
+    <li class="carousel-element"><img src="img/img1-lg.jpg"><p>Описание 1</p></li>
+    <li class="carousel-element"><img src="img/img2-lg.jpg"><p>Описание 2</p></li>
+    <li class="carousel-element"><img src="img/img3-lg.jpg"><p>Описание 3</p></li>
+    <li class="carousel-element"><img src="img/img4-lg.jpg"><p>Описание 4</p></li>
+    <li class="carousel-element"><img src="img/img1-lg.jpg"><p>Описание 5</p></li>
+    <li class="carousel-element"><img src="img/img2-lg.jpg"><p>Описание 6</p></li>
+    <li class="carousel-element"><img src="img/img3-lg.jpg"><p>Описание 7</p></li>
+    <li class="carousel-element"><img src="img/img4-lg.jpg"><p>Описание 8</p></li>
+    <li class="carousel-element"><img src="img/img1-lg.jpg"><p>Описание 9</p></li>
+    <li class="carousel-element"><img src="img/img2-lg.jpg"><p>Описание 10</p></li>
+    <li class="carousel-element"><img src="img/img3-lg.jpg"><p>Описание 11</p></li>
+    <li class="carousel-element"><img src="img/img4-lg.jpg"><p>Описание 12</p></li>
+    <li class="carousel-element"><img src="img/img3-lg.jpg"><p>Описание 11</p></li>
+    <li class="carousel-element"><img src="img/img4-lg.jpg"><p>Описание 12</p></li>
+    <li class="carousel-element"><img src="img/img3-lg.jpg"><p>Описание 11</p></li>
+    <li class="carousel-element"><img src="img/img4-lg.jpg"><p>Описание 12</p></li>
+
+
+  </ul>
+   </div>
+    <div class="carousel-arrow-right"><span>Вправо</span></div>
+</body>
+</html>
