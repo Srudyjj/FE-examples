@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    .menu-item {
+      border: 1px solid black;
+      float:left;
+      position:relative;
+      cursor: pointer;
+    }
+    .menu-item .submenu {
+      height: 40px;
+      width: 120px;
+      background: greenyellow;
+      position: absolute;
+      cursor: pointer;
+    }
+
+
+  </style>
+  <title>DropMenu</title>
+</head>
+<body>
+  <div id="nav">
+    <div class="menu-item">
+      Меню 1
+      <div class="submenu">Подменю</div>
+    </div>
+    <div class="menu-item">
+      Меню 2
+      <div class="submenu">Подменю</div>
+    </div>
+    <div class="menu-item">
+      Меню 3
+      <div class="submenu">Подменю</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("nav").onmouseover = function (e) {
+      var target = e.target;
+      if (target.className == "menu-item") {
+        var s = target.getElementsByClassName("submenu");
+        closeMenu();
+        s[0].style.display = "block";
+
+      }
+      
+    }
+
+    document.onmouseover = function (e) {
+      var target = e.target;
+      if (target.className != "menu-item" && target.className != "submenu") {
+        closeMenu();
+      
+      }
+
+      
+    }
+
+    function closeMenu() {
+      var menu = document.getElementById("nav");
+      var subm = document.getElementsByClassName("submenu");
+      for (var i = 0; i < subm.length; i++) {
+        subm[i].style.display = "none";
+      }
+      
+    }
+  </script>
+
+</body>
+</html>
